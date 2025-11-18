@@ -29,6 +29,25 @@
         </ul>
       </li><!-- End Components Nav -->
       @endcan
+
+      <!-- Facturación Factus -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#factus-nav" data-bs-toggle="collapse" href="#">
+          <i class="fa-solid fa-file-invoice-dollar"></i><span>Facturación</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="factus-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{ route('factus.invoices.index') }}">
+              <i class="bi bi-circle"></i><span>Ver facturas</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('factus.invoices.create') }}">
+              <i class="bi bi-circle"></i><span>Nueva factura</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Factus Nav -->
       
       @can('ver-admin')
       <!-- End Contact Page Nav -->

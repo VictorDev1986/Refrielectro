@@ -6,6 +6,7 @@ use App\Http\Controllers\Clientes;
 use App\Http\Controllers\Compras;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DetalleVentas;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Productos;
 use App\Http\Controllers\Proveedores;
 use App\Http\Controllers\Reportes_productos;
@@ -13,11 +14,15 @@ use App\Http\Controllers\Usuarios;
 use App\Http\Controllers\Ventas;
 use Illuminate\Support\Facades\Route;
 
+// Ruta pública - Landing Page
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
+
+// Rutas de autenticación
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/logear', [AuthController::class, 'logear'])->name('logear');
+
 //crear un usuario admin, solo usar una vez
 Route::get('/crear-admin', [AuthController::class, 'crearAdmin']);
-
-Route::get('/', [AuthController::class, 'index'])->name('login');
-Route::post('/logear', [AuthController::class, 'logear'])->name('logear');
 
 
 Route::middleware("auth")->group(function(){
@@ -101,3 +106,6 @@ Route::prefix('compras')->middleware('auth', 'Checkrol:admin')->group(function()
     Route::get('/show/{id}', [Compras::class, 'show'])->name('compras.show');
     Route::delete('/destroy/{id}', [Compras::class, 'destroy'])->name('compras.destroy');
 });
+
+// Rutas del módulo Factus (facturación electrónica)
+require __DIR__ . '/factus.php';

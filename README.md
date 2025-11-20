@@ -21,6 +21,20 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Gastos Module
+
+Este proyecto incluye un módulo completo de **Gastos** integrado con el flujo de ventas. El módulo permite registrar y filtrar diferentes categorías de gastos (presupuesto, insumos, repuestos, caja menor, transporte, sueldos, planillas y otros), asociarlos opcionalmente a una venta y gestionarlos mediante interfaces Bootstrap 5.
+
+### Configuración rápida
+
+Ejecuta las migraciones y seeders para crear la tabla de gastos y cargar datos de ejemplo:
+
+```bash
+php artisan migrate --seed
+```
+
+El módulo está protegido con middleware `auth` y `Checkrol:admin`; inicia sesión con un usuario administrador para acceder a las vistas en `/gastos`.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.

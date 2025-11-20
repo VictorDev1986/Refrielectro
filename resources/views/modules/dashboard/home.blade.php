@@ -5,7 +5,7 @@
 @section('contenido')
 <main id="main" class="main">
   <div class="pagetitle">
-    <h1>Dashboard</h1>
+    <h1>Panel principal</h1>
   </div><!-- End Page Title -->
 
   <section class="section">

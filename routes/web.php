@@ -6,6 +6,7 @@ use App\Http\Controllers\Clientes;
 use App\Http\Controllers\Compras;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DetalleVentas;
+use App\Http\Controllers\GastoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Productos;
 use App\Http\Controllers\Proveedores;
@@ -105,6 +106,10 @@ Route::prefix('compras')->middleware('auth', 'Checkrol:admin')->group(function()
     Route::put('/update/{id}', [Compras::class, 'update'])->name('compras.update');
     Route::get('/show/{id}', [Compras::class, 'show'])->name('compras.show');
     Route::delete('/destroy/{id}', [Compras::class, 'destroy'])->name('compras.destroy');
+});
+
+Route::middleware('auth', 'Checkrol:admin')->group(function(){
+    Route::resource('gastos', GastoController::class);
 });
 
 // Rutas del módulo Factus (facturación electrónica)

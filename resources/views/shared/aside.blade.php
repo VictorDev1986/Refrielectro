@@ -86,6 +86,13 @@
       </li><!-- End Error 404 Page Nav -->
 
       <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('gastos.index') }}">
+          <i class="fa-solid fa-wallet"></i>
+          <span>Gastos</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route("proveedores") }}">
           <i class="fa-solid fa-truck"></i>
           <span>Proveedores</span>
